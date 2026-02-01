@@ -13,8 +13,8 @@ const app = express();
 app.use(
     cors({
         origin: [
-            "pastebin-woad.vercel.app",
             "http://localhost:5173",
+            process.env.FRONTEND_URL,
         ],
     })
 );
@@ -29,10 +29,10 @@ app.use("/api", healthRoutes);
 app.use("/api", pasteRoutes);
 
 mongoose.connect(process.env.MONGO_URI, {
-  dbName: "pastebin_public" // 👈 your NEW database name
+    dbName: "pastebin_public" // 👈 your NEW database name
 })
-.then(() => console.log("MongoDB ✅ connected"))
-.catch(err => console.error("Mongo ❌ error ", err));
+    .then(() => console.log("MongoDB ✅ connected"))
+    .catch(err => console.error("Mongo ❌ error ", err));
 
 
 const port = process.env.PORT || 9500;
