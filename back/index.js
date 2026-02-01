@@ -28,10 +28,12 @@ app.use("/home", (req, res) => {
 app.use("/api", healthRoutes);
 app.use("/api", pasteRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("MongoDB ✅ connected"))
-    .catch(err => console.error("Mongo ❌ error ", err));
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: "pastebin_public" // 👈 your NEW database name
+})
+.then(() => console.log("MongoDB ✅ connected"))
+.catch(err => console.error("Mongo ❌ error ", err));
 
-const port = process.env.PORT || 4500;
+
+const port = process.env.PORT || 9500;
 app.listen(port, () => console.log(`Server running at port http://localhost:${port}`));
-

@@ -46,11 +46,11 @@ export default function CreatePaste() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gray-200 flex items-center justify-center p-4">
             <div className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
 
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                    Create Paste
+                    PasteBin App
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,7 +59,7 @@ export default function CreatePaste() {
                     <textarea
                         className="w-full border rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                         rows="8"
-                        placeholder="Enter your text here..."
+                        placeholder="Create your text here..."
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         required
@@ -87,14 +87,20 @@ export default function CreatePaste() {
                     </div>
 
                     {/* Button */}
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="w-full bg-blue-600 text-white py-2 rounded-md font-medium
-                       hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {loading ? "Creating..." : "Create Paste"}
-                    </button>
+
+                    <div className="flex justify-center">
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className=" inline-flex bg-pink-600 text-white
+                            px-12 py-2 rounded-md font-medium
+                            hover:bg-blue-700 transition
+                            disabled:opacity-50 disabled:cursor-not-allowed "
+                        >
+                            {loading ? "Creating..." : "Create Paste"}
+                        </button>
+                    </div>
+
                 </form>
 
                 {/* Success Link */}
