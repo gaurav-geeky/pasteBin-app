@@ -13,7 +13,7 @@ const app = express();
 app.use(
     cors({
         origin: [
-            "https://aganitha-paste-bin-assessemnt.vercel.app",
+            "pastebin-woad.vercel.app",
             "http://localhost:5173",
         ],
     })
