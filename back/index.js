@@ -10,29 +10,14 @@ const app = express();
 
 // app.use(cors());
 
-// app.use(
-//     cors({
-//         origin: [
-//             "http://localhost:5173",
-//             process.env.FRONTEND_URL,
-//         ],
-//     })
-// );
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.FRONTEND_URL,
-];
-
 app.use(
-  cors({
-    origin: (origin, cb) =>
-      !origin || allowedOrigins.includes(origin)
-        ? cb(null, true)
-        : cb(new Error("CORS blocked")),
-  })
+    cors({
+        origin: [
+            "http://localhost:5173",
+            process.env.FRONTEND_URL,
+        ],
+    })
 );
-
 
 app.use(express.json());
 
